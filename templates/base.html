@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zxx" dir="ltr">
+
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUSTOMIZED LAPTOP STORE</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content=" Product eCommerce ">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon"  />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- CSS href="{% static 'assets/images/favicon.ico' %}"
+    ============================================ -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/font.awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/pe-icon-7-stroke.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/venobox.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.min.css' %}"> 
+    <!-- Style CSS -->
+     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <!-- Minify Version -->
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .navbar .navbar-nav .open .dropdown-menu {
+	background: #faf7fd;
+	border-radius: 1px;
+	border-color: #faf7fd;
+	box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.navbar .divider {
+	background-color: #e9ecef !important;
+}
+a:hover{
+    text-decoration: none;
+}
+</style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <header>
+            <!-- Header top area start -->
+            <div class="header-top">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <div class="welcome-text">
+                                <p>WELCOME TO CUSTOMIZED LAPTOP STORE</p>
+                            </div>
+                        </div>
+                        <div class="col d-none d-lg-block">
+                            <div class="top-nav">
+                                <ul>
+                                    <a href="tel:9265877231" class="pb-2"><i class="bi bi-telephone" style="font-size:100%;"></i><span class="text-light">9265877231</span></a>
+                                    <div class="text-secondary px-1" style="font-size:100%;">|</div>
+
+                                    <a href="mailto:D2k009@gmail.com" class="pb-2"><i class="bi bi-envelope" ></i> <span class="text-light">D2k009@gmail.com</span></a>
+                                    <div class="text-secondary px-1" style="font-size:200%;">|</div>
+
+                                    <div class="nav-item dropdown">
+                                        <a href="" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><i class="bi bi-person-circle" style="font-size:120% ;"></i> <span class="text-light">Account</span></a>
+                                        <div class="dropdown-menu">
+                                            <a href="{% url 'prof' %}" class="dropdown-item"><i class="fa fa-user-o"></i> My Profile</a>
+                                            <div class="divider dropdown-divider"></div>
+                                            {% if user.is_authenticated %}
+                                            <a href="{% url 'logout' %}" class="dropdown-item"><i class="pe-7s-unlock"></i> Logout</a>
+                                            {% else %}
+                                            <a href="{% url 'login' %}" class="dropdown-item mt-1"><i class="pe-7s-lock"></i> Login</a>
+                                            {% endif %}
+                                            
+                                        </div>
+                                    </div>
+                                    {% if user.is_superuser %}
+                                    <div class="text-secondary" style="font-size:200%;">|</div>
+                                    
+                                    <div class="nav-item dropdown">
+                                        <a href="" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action "><i class="pe-7s-news-paper mt-1 " style="font-size: 120%;"></i><span class="text-light">Reports</span></a>
+                                            <div class="dropdown-menu">
+                                                
+                                                    <a href="{% url 'showusers' %}"  class="dropdown-item"><i class="pe-7s-angle-right-circle" ></i><span>User Report</span></a><br>
+                                                    <a href="{% url 'orderdetail' %}"  class="dropdown-item"><i class="pe-7s-angle-right-circle" ></i><span> Order Report</span></a><br>
+                                                    <a href="{% url 'productdetail' %}"  class="dropdown-item"><i class="pe-7s-angle-right-circle" ></i> <span>Products Report</span></a>
+                                                
+                                            </div>
+                                    </div>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header top area end -->
+            <!-- Header action area start -->
+            <div class="header-bottom  d-none d-lg-block">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-lg-3 col">
+                            <div class="header-logo">
+                            <a href="/" style="color: white;">
+                                <span style="font-size: 70px;" class="text-primary">D</span><span style="font-size: 70px;">2</span><span style="font-size: 70px;" class="text-primary">K</span>
+                            </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <div class="search-element">
+                                <form action="/search/" method="get">
+                                    <input type="text" placeholder="Search" name="query"id="query" />
+                                    <button><i class="pe-7s-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col">
+                            <div class="header-actions">
+                                <!-- Single Wedge Start -->
+                                <a href="/cart/cart_details/"><i class="pe-7s-cart text-light" style="font-size: 200%;"></i></a>
+                                <!-- Single Wedge End -->
+                                <div class="text-secondary px-1" style="font-size:200%;">|</div>
+
+                                <a href="#offcanvas-cart" class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
+                                    <i class="pe-7s-shopbag"></i>
+                                    <span class="header-action-num">{{request.session.cart|length}}</span>
+                                    <!-- <span class="cart-amount">€30.00</span> -->
+                                </a>
+                                <a href="#offcanvas-mobile-menu" class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">
+                                    <i class="pe-7s-menu"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header action area end -->
+            <!-- Header action area start -->
+            <div class="header-bottom d-lg-none sticky-nav style-1">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-lg-3 col">
+                            <div class="header-logo">
+                                <a href="/"><span style="font-size: 70px;" class="text-primary">D</span><span style="font-size: 70px;color: white;">2</span><span style="font-size: 70px;" class="text-primary">K</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <div class="search-element">
+                                <form action="#">
+                                    <input type="text" placeholder="Search" />
+                                    <button><i class="pe-7s-search"></i></button>
+                                </form>
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-3 col">
+                            <div class="header-actions">
+                                <!-- Single Wedge Start -->
+                                
+                                    
+    
+                                
+                                <!-- Single Wedge End -->
+                                <a href="#offcanvas-cart" class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
+                                    <i class="pe-7s-shopbag"></i>
+                                    <span class="header-action-num">{{request.session.cart|length}}</span>
+                                    <!-- <span class="cart-amount">€30.00</span> -->
+                                </a>
+                                <a href="#offcanvas-mobile-menu" class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">
+                                    <i class="pe-7s-menu"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header action area end -->
+            <!-- header navigation area start -->
+            <div class="header-nav-area d-none d-lg-block sticky-nav">
+                <div class="container">
+                    <div class="header-nav">
+                        <div class="main-menu position-relative">
+                            <ul>
+                                <li class="dropdown"><a href="/">Home </i></a>
+                                    
+                                </li>
+                                <li><a href="/aboutus/">About</a></li>
+                                <li class="dropdown position-static"><a href="{% url 'product' %}">Products </i></a>
+                                <li class="dropdown position-static"><a href="{% url 'system' %}">system Builder</i></a>
+                                     
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                                {% if user.is_authenticated %}
+                                <li><a href="/your-order">My Order</a></li>
+                                {% else %}
+                                <li><a href="{% url 'messages' %}">My Order</a></li> 
+
+                                {% endif %}
+                                
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </header>
+    {% block body %}
+    {% endblock %}
+    <!-- footer area -->
+    <div class="footer-area">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start single blog -->
+                        <div class="col-md-6 col-lg-3 mb-md-30px mb-lm-30px">
+                            <div class="single-wedge">
+                                <div>
+                                    <a href="/aboutus/" style="color: white;">
+                                        <span style="font-size: 50px;" class="text-primary">D</span><span style="font-size: 50px;" class="text-dark">2</span><span style="font-size: 50px;" class="text-primary">K</span>
+                                    </a>
+                                    </div>
+                                <p class="about-text">
+
+                                    To simplify the selection and management of PC parts, we provide a platform that simplifies the process and provides you with the best possible setup for your computer.
+                                </p>
+                                
+                            </div>
+                        </div>
+                        <!-- End single blog -->
+                        <!-- Start single blog -->
+                        <div class="col-md-6 col-lg-3 col-sm-6 mb-lm-30px pl-lg-60px">
+                            <div class="single-wedge">
+                                <h4 class="footer-herading">Useful Links</h4>
+                                <div class="footer-links">
+                                    <div class="footer-row">
+                                        <ul class="align-items-center">
+                                            <li class="li"><a class="single-link" href="/product/?categories=17"> Pre-Build Gaming</a></li>
+                                            <li class="li"><a class="single-link" href="/product/?categories=18">Pre-Build Inexpensive</a></li>
+                                            <li class="li"><a class="single-link" href="/product/?categories=1">Pre-build proffesional</a></li>
+                                            <li class="li"><a class="single-link" href="/product/?categories=3">Refurbished</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End single blog -->
+                        <!-- Start single blog -->
+                        <div class="col-md-6 col-lg-3 col-sm-6 mb-lm-30px pl-lg-40px">
+                            <div class="single-wedge">
+                                <h4 class="footer-herading">My Account</h4>
+                                <div class="footer-links">
+                                    <div class="footer-row">
+                                        <ul class="align-items-center">
+                                            <li class="li"><a class="single-link" href="/prof/">My Account</a></li>
+                                            <li class="li"><a class="single-link" href="{% url 'contact'%}">Contact</a></li>
+                                            <li class="li"><a class="single-link" href="/cart/cart_details/">Shopping cart</a></li>
+                                            <li class="li"><a class="single-link" href="/product/">Our Products</a></li>
+                                            <li class="li"><a class="single-link" href="/system/">System Builder</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End single blog -->
+                        <!-- Start single blog -->
+                        <div class="col-md-6 col-lg-3 col-sm-12">
+                            <div class="single-wedge">
+                                <h4 class="footer-herading">Contact Info</h4>
+                                <div class="footer-links">
+                                    <!-- News letter area -->
+                                    <p class="address"><b>Address:</b></p>
+                                    <p> Akshar Complex Satellite, <br>Near By Shivranjanicross Road, Ahmedabad Gujarat 380001 </p>
+                                    <p class="phone"><b>Phone:</b><a href="tel:9265877231"> 9265877231</a></p>
+                                    <p class="mail"><b>Email:</b><a href="mailto:D2k009@gmail.com">D2k009@gmail.com</a></p>
+                                    
+                                    <!-- News letter area  End -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End single blog -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="line-shape-top line-height-1">
+                        <div class="row flex-md-row-reverse align-items-center">
+                            <div class="col-md-6 text-center text-md-end">
+                                <div class="payment-mth"><a href="/cart/cart_details/"><img class="img img-fluid" src="{% static 'assets/images/icons/payment.png' %}" alt="payment-image"></a></div>
+                            </div>
+                            <div class="col-md-6 text-center text-md-start">
+                                <p class="copy-text"> © 2024 <strong> D2K CUSTOMIZED LAPTOP STORE </strong> Made By <a  href="/">
+                                        <strong> D2K </strong></a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Area End -->
+</div>
+<!-- Modal -->
+{%for i in product %}
+<div class="modal modal-2 fade" id="exampleModal-{{forloop.counter}}" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <i class="pe-7s-close"></i></button>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
+                        <!-- Swiper -->
+                        <div class="swiper-container gallery-top">
+                            <div class="swiper-wrapper">
+                                {% for img in i.images_set.all %}
+                                <div class="swiper-slide">
+                                    <img class="img-responsive m-auto" src="{{img.image.url}}" alt="">
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="swiper-container gallery-thumbs mt-20px slider-nav-style-1 small-nav">
+                            <div class="swiper-wrapper">
+                                {% for img in i.images_set.all %}
+                                <div class="swiper-slide">
+                                   
+                                    <img class="img-responsive m-auto" src="{{img.image.url}}" alt="">
+                                </div>
+                               {% endfor %}
+                            </div>
+                            <!-- Add Arrows -->
+                            <div class="swiper-buttons">
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+                        <div class="product-details-content quickview-content">
+                            <h2>{{i.name | truncatewords:15}}</h2>
+                            <div class="pricing-meta">
+                                <ul class="d-flex">
+                                    <li class="new-price">₹{{i.price}}</li>
+                                </ul>
+                            </div>
+                            <div class="pro-details-rating-wrap">
+                                <div class="rating-product">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <span class="read-review"><a class="reviews" href="#">( 2 Review )</a></span>
+                            </div>
+                            <p class="mt-30px">{{i.description | truncatewords:50}}</p>
+                            <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                                <span>SKU:</span>
+                                <ul class="d-flex">
+                                    <li>
+                                        <a href="#">Ch-256xl</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                                <span>Categories: </span>
+                                <ul class="d-flex">
+                                    <li>
+                                        <a href="#">{{i.categories}}</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                                <span>Tags: </span>
+                                <ul class="d-flex">
+                                    <li>
+                                        {%for tag in i.tag_set.all %}
+                                        <a href="#">{{tag.name}} ,</a>
+                                        {% endfor %}
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="pro-details-quality">
+                                <div class="cart-plus-minus">
+                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
+                                </div>
+                                <div class="pro-details-cart">
+                                    <a href="{% url 'cart_add' i.id %}" class="add-cart">Add To Cart</a>
+                                </div>
+                                <div class="pro-details-compare-wishlist pro-details-wishlist ">
+                                    <a href=""><i class="pe-7s-like"></i></a>
+                                </div>
+                            </div>
+                            <div class="payment-img">
+                                <a href="#"><img src="{% static 'assets/images/icons/payment.png' %}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<!-- Modal end -->
+<!-- Modal Cart -->
+{% for i in product %}
+<div class="modal customize-class fade" id="exampleModal-Cart-{{forloop.counter}}" tabindex="-1"   aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="pe-7s-close"></i></button>
+                <div class="tt-modal-messages">
+                    <i class="pe-7s-check"></i> For Add Product Click to Add To Cart 
+                </div>
+                <div class="tt-modal-product">
+                    <div class="tt-img">
+                        <img src="/{{i.image}}" alt="Modern Smart Phone">
+                    </div>
+                    <h2 class="tt-title"><a href="#">{{i.name | truncatewords:10}}</a></h2>
+                    <br>
+                    <a href="{% url 'cart_add' i.id %}">Add To Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     
+{% endfor %}
+<!-- Modal wishlist -->
+<div class="modal customize-class fade" id="exampleModal-Wishlist" tabindex="-1"   aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="pe-7s-close"></i></button>
+                <div class="tt-modal-messages">
+                    <i class="pe-7s-check"></i> Added to Wishlist successfully!
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+
+
+
+<!-- Global Vendor, plugins JS -->
+    <!-- JS Files
+    ============================================ -->
+    <script src="{% static 'assets/js/vendor/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-migrate-3.3.2.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/modernizr-3.11.2.min.js' %}" ></script>
+    <script src="{% static 'assets/js/plugins/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/scrollUp.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/venobox.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/mailchimp-ajax.js' %}"></script>
+
+    <!-- Minify Version -->
+    <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.min.js' %}"></script>
+
+    <!-- Main JS (Common Activation Codes) -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>

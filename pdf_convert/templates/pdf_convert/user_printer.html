@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Show Info</title>
+ <style>
+    .sitename {
+      text-align: center;
+      font-size: 34px;
+      margin: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      text-align: center;
+      border-collapse: collapse;
+      padding-top: 4px;
+      padding-bottom: 1px;
+    }
+
+    th {
+      border-bottom: 2px solid black;
+      font-size: 12px;
+      padding-top: 1rem;
+    }
+
+    td {
+      border-bottom: 0.5px solid grey;
+      font-size: 12px;
+    }
+
+    .capt{
+      font-size: 28px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="sitename"> User Report</h1>
+  <table>
+    <caption class="capt">Report</caption>
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>Email </th>
+      <th>Active/</th>
+      <th>Joining Date</th>
+    </tr> 
+    {% for user in users %}
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.is_active }}</td>
+      <td>{{ user.date_joined }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+
+</html>

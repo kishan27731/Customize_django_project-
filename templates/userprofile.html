@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" src="https://th.bing.com/th/id/OIP.p02Fz-G99Mrcb-ZGhc0qSQHaHa?pid=ImgDet&w=182&h=182&c=7"><br>
+                <span class="font-weight-bold" style ="font-size:22px">{{ user.first_name}} {{user.last_name}}</span>
+                <span class="text-black-50"></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div style="font-size:200%;" class="text-primary"> Y<span class="text-dark" >our</span> P<span  class="text-dark">rofile</span></div>
+                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600"></h6>
+                   
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels">Name</label>
+                        <input type="text" class="form-control" placeholder="first name" value="{{ user.first_name}}"/readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Surname</label>
+                        <input type="text" class="form-control"  placeholder="surname" value="{{user.last_name}}"/readonly>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label class="labels">Email id</label>
+                        <input type="text" class="form-control" placeholder="enter phone number" value="{{user.email}}"/readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Is active</label>
+                        <input type="text" class="form-control" placeholder="enter address" value="{{user.is_active}}"/readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">User id</label>
+                        <input type="text" class="form-control"  placeholder="surname" value="{{user.id}}"/readonly>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <label class="labels">First Login</label>
+                        <input type="text" class="form-control" placeholder="enter email id" value="{{user.date_joined}}"/readonly>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Last Login </label>
+                        <input type="text" class="form-control" placeholder="education" value="{{user.last_login}}"/readonly>
+                    </div>
+                    
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label class="labels">Address</label>
+                        <input type="text" class="form-control" placeholder="Address" value="">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Country</label>
+                        <input type="text" class="form-control" placeholder="country" value="INDIA" /readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">City</label>
+                        <input type="text" class="form-control" placeholder="Ahmedabad" value="Ahmedabad">
+                    </div>
+                    
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" type="button" onclick="alert('Your profile is updated!!')">Save Profile</button>
+                </div>
+                
+                
+            </div>
+        
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div style="font-size:200%;" class="text-primary"> A<span class="text-dark" >dditional</span> D<span  class="text-dark">etails</span></div>
+                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600"></h6>
+                <div class="d-flex justify-content-between align-items-center experience">
+                    <span> 
+                        <a href="/cart/cart_details/" class="dropdown-item"><i></i> Cart Details</a> </span>
+                    <span >
+                    </span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center experience">
+                    <span> <a href="/your-order" class="dropdown-item"><i></i>My Orders</a> </span>
+                    <span >
+                        
+                    </span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center experience">
+                    <span> 
+                        <a href="/allorders/" class="dropdown-item"><i></i>All Order Details</a> </span>
+                    <span >
+                    </span>
+                </div><br>
+                <div style="font-size:200%;" class="text-primary"> A<span class="text-dark" >ctions</span></div>
+                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600"></h6>
+               
+                <div class="d-flex justify-content-between align-items-center experience">
+                    <span> <a href="{% url 'logout' %}" class="dropdown-item"><i class="pe-7s-unlock"></i> Logout</a> </span>
+                    <span >
+                   
+                    </span>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center experience">
+                    <span> <a href="{% url 'forget' %}" class="dropdown-item"><i class="pe-7s-unlock"></i>Change Password</a></span>
+                    <span>
+                       
+                    </span>
+                </div>
+                <br>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block body  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            text-align: center; 
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+ <table>
+    <tr>
+        <th>Component</th>
+        <th>Product</th>
+    </tr>
+
+    <!-- Repeat this row for each component -->
+    <tr id="processorRow">
+      <!-- Component Name -->
+      <td>Processor</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=4" class="selected m-0">Add Components</a></td>
+    
+   </tr>
+    <tr>
+        <td>MotherBoard</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=5" class="selected m-0">Add Components</a></td>
+
+    </tr>
+    <tr>
+        <td>Cpu Cooler</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=6" class="selected m-0">Add Components</a></td>
+    </tr>
+    <tr>
+        <td>Case</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=7" class="selected m-0">Add Components</a></td>
+
+    </tr>
+    <tr>
+        <td>Graphics Card</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=8" class="selected m-0">Add Components</a></td>
+
+    </tr>
+    <tr>
+        <td>Ram</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=9" class="selected m-0">Add Components</a></td>
+    </tr>
+    <tr>
+        <td>Storage</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=10" class="selected m-0">Add Components</a></td>
+    </tr>
+    <tr>
+        <td>Case Cooler</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=11" class="selected m-0">Add Components</a></td>
+
+    </tr>
+    <tr>
+        <td>PowerSupply</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=12" class="selected m-0">Add Components</a></td>
+    </tr>
+    <tr>
+        <td>Monitor</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=13" class="selected m-0">Add Components</a></td>
+
+    </tr>
+    <tr>
+        <td>Accessories</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=14" class="selected m-0">Add Components</a></td>
+
+    </tr>
+  
+    <tr>
+        <td>Software</td>
+
+      <!-- Add Component Button -->
+      <td><a href="/product/?categories=16" class="selected m-0">Add Components</a></td>
+
+    </tr>
+   
+</table>
+
+
+<script type='text/javascript'>
+// JavaScript function to add a component
+function addComponent(componentType) {
+  // Logic to add a component
+  // This could involve opening a modal to select the product,
+  // then updating the Title, Price and Product Link cells with the selected product's information.
+}
+
+// JavaScript function to remove a component
+function removeComponent(componentType) {
+  // Logic to remove a component
+}
+</script>
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <style>
+    @page {
+      size: A4;
+      margin: 1cm;
+
+      @frame footer {
+        -pdf-frame-content: footerContent;
+        bottom: 0cm;
+        margin-left: 9cm;
+        margin-right: 9cm;
+        height: 1cm;
+      }
+    }
+
+    .invoice-box {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      border: 1px solid #eee;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+      font-size: 16px;
+      line-height: 24px;
+      font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+      color: #555;
+    }
+
+    .invoice-box table {
+      width: 100%;
+      line-height: inherit;
+      text-align: left;
+    }
+
+    .invoice-box table td {
+      padding: 5px;
+      vertical-align: top;
+    }
+
+    .invoice-box table tr td:nth-child(2) {
+      text-align: right;
+    }
+
+    .invoice-box table tr.top table td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.top table td.title {
+      font-size: 26px;
+      line-height: 45px;
+      color: #333;
+    }
+
+    .invoice-box table tr.information table td {
+      padding-bottom: 40px;
+    }
+
+    .invoice-box table tr.heading td {
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-weight: bold;
+      text-align:center;
+    }
+
+    .invoice-box table tr.details td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.item td {
+      border-bottom: 1px solid #eee;
+    }
+
+    .invoice-box table tr.item.last td {
+      border-bottom: none;
+    }
+
+    .invoice-box table tr.total td:nth-child(2) {
+      border-top: 2px solid #eee;
+      font-weight: bold;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .invoice-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+
+      .invoice-box table tr.information table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+    }
+
+    /** RTL **/
+    .rtl {
+      direction: rtl;
+      font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    }
+
+    .rtl table {
+      text-align: right;
+    }
+
+    .rtl table tr td:nth-child(2) {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <br><br><br>
+  <div class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+      <tr class="top">
+        <td colspan="2">
+          <table class="table table-bordered table-striped">
+            <tr>
+              <td class="title">
+                <h5>D2K Customized Store</h5>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      {% for order in orders %}
+      <tr class="information">
+        <td colspan="2">
+          <table>
+            <tr>
+              <td>
+                Customer ID: {{ user.id }}<br><br>
+                Customer Name : {{ order.firstname }} {{order.lastname}}<br><br>
+                Customer Joining date : <br>{{ user.date_joined }}<br><br>
+                Customer E-mail : {{ user.email }}
+              </td>
+              <td>
+                Customer Phone no: {{ order.phone }}<br><br>
+                Customer Address : {{ order.address }},{{order.city}},<br>{{order.state}},{{order.country}},{{order.postalcode}}<br><br>
+                Invoice Number : {{ order.id }}<br><br>
+                
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      {% for item in order_items %}
+      {% if item.order.id == order.id %}
+      <tr class="information">
+        <td colspan="2">
+          <table>
+            <tr>
+              <td>
+                Product Price : {{ item.price }}<br><br>
+                Purchase Date : {{order.date}}
+              </td>
+              <td>
+                Product Name: {{ item.products }}<br><br>
+                Product Quantity: {{ item.quantity }}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+      <tr class="information">
+        <td colspan="2">
+          <table>
+            <tr>
+              <td>
+                Total Amount :
+                {{ order.amount }}
+              </td>
+              <td>
+                Payment ID  :
+                {{ order.Paymentid }}
+              </td>
+             </tr>
+          </table>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</body>
+</html>
+
+<p>
+  <b>Dear Customer</b>,
+   </p>
+   <p>
+   Thank you for your recent purchase from our store. 
+   We truly appreciate your business and are grateful for the trust you've placed in us.
+   We hope you are delighted with your purchase. 
+   If you have any questions or concerns about your product, 
+   please don't hesitate to contact our customer service team.You can contact us via email or phone number.
+   <p>
+     If you are using our system builder
+     Our team is eagerly looking forward to understanding your recent interaction with our System Builder tool. 
+     We plan to reach out to you within the next 10 days to discuss your build and ensure that all your requirements are met. 
+     Our primary objective is to streamline your experience of customizing and purchasing your product.<br>
+   </p>
+   Thank you once again for choosing us. We look forward to serving you again in the future.
+   </p>
+   <p>
+    <b>Best Regards,</b>
+    <p>
+   <b>Team D2K</b>
+   </p>
+ </P>
+ </body>
+ </html>

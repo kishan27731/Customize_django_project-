@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Change Success</title>
+    <style>
+        /* Style for success message */
+        .success-message {
+            color: red;
+            font-weight: bold;
+            text-align: center; /* Corrected the typo here */
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 120px;margin-bottom: 100px ">
+        <h5>Password change attempt unsuccessful Please try again later</h5>
+        <p class="success-message">Your password does not match 🔐!!</p>
+    </div>
+    <!-- You can add additional content or redirect the user to another page here -->
+</body>
+</html>
+
+{% endblock %}

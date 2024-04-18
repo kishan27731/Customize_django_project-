@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="contact-area">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-form">
+                        <div class="contact-title mb-30">
+                            <h2 class="title">Send A Quest</h2>
+                        </div>
+                        <form class="contact-form-style"  action="/contact/" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input name="name" placeholder="Name*" type="text" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <input name="email" placeholder="Email*" type="email" />
+                                </div>
+                                <div class="col-lg-12">
+                                    <input name="subject" placeholder="Subject*" type="text" />
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    <textarea name="message" placeholder="Your Message*"></textarea>
+                                    <button class="btn btn-primary" onclick="submit">Send Response</button>
+                                    
+
+                                </div>
+                            </div>
+                        </form>
+                        <p class="form-messege"></p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="contact-info">
+                        <div class="single-contact">
+                            <div class="icon-box">
+                                <img src="assets/images/icons/contact-1.png" alt="">
+                            </div>
+                            <div class="info-box">
+                                <h5 class="title">Address</h5>
+                                <p>Akshar Complex Satellite, <br>Near By Shivranjanicross Road,<br> Ahmedabad  Gujarat 380001 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="single-contact">
+                            <div class="icon-box">
+                                <img src="assets/images/icons/contact-2.png" alt="">
+                            </div>
+                            <div class="info-box">
+                                <h5 class="title">Phone No</h5>
+                                <p><a href="tel:123456789">+919265877231</a></p>
+                                <p><a href="tel:123456789">+919265877221</a></p>
+                            </div>
+                        </div>
+                        <div class="single-contact m-0">
+                            <div class="icon-box">
+                                <img src="assets/images/icons/contact-3.png" alt="">
+                            </div>
+                            <div class="info-box">
+                                <h5 class="title">Email/Web</h5>
+                                <p><a href="mailto:d2k009@gmail.com">d2k009@gmail.com</a></p>
+                                <p><a href="https://www.example.com/">www.d2k.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Area End -->
+<!-- map Area Start -->
+<div class="contact-map">
+    <div id="mapid">
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29437.494867621586!2d72.6742453!3d22.7398776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2sin!4v1645948530914!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <a href="https://sites.google.com/view/maps-api-v2/mapv2"></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

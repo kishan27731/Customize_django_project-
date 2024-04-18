@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Change Success</title>
+    <style>
+        /* Style for success message */
+        .success-message {
+            color: green;
+            font-weight: bold;
+            text-align: center; /* Corrected the typo here */
+        }
+    </style>
+    <script>
+        // Redirect to login page after 5 seconds
+        var timeleft = 5;
+        var countdownTimer = setInterval(function(){
+            document.getElementById("countdown").innerHTML = "Redirecting in " + timeleft + " seconds...";
+            timeleft -= 1;
+            if(timeleft <= 0){
+                clearInterval(countdownTimer);
+                window.location.href = "{% url 'login' %}";
+            }
+        }, 1000);
+    </script>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 120px;margin-bottom: 100px ">
+        <h5>Password Successfully Changed</h5>
+        <p class="success-message">Your password has been updated 🎉!!</p>
+        <p id="countdown"></p>
+    </div>
+    <!-- You can add additional content or redirect the user to another page here -->
+</body>
+</html>
+
+{% endblock %}
